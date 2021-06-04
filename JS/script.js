@@ -135,3 +135,150 @@ for (let key in options) {
 }
 
 console.log(counter);
+
+//========================================================================================================================================================
+
+//массив
+
+let arr = [1, 2, 6, 8, 10];
+
+arr.sort(compareNum);
+
+function compareNum(a, b) {
+	return a - b;
+}
+
+//перебор
+for (let i = 0; i < arr.length; i++) {
+	console.log(arr[i]);
+}
+//тоже самое 
+for (let value of arr) {
+	console.log(value);
+}
+
+//item - элемент массива, i - индекс, arr - массив
+arr.forEach(function(item, i, arr) {
+	console.log(`${i}: ${item} внутри массива ${arr}`);
+});
+
+//========================================================================================================================================================
+
+//объект
+
+
+//ПОВЕРХНОСТНОЕ копирование объекта
+
+/*
+function copy(mainObj) {
+	let objCopy = {};
+
+	let key;
+	for(key in mainObj) {
+		objCopy[key] = mainObj[key];
+	}
+
+	return objCopy;
+}
+
+const numbers = {
+	a: 2,
+	b: 5,
+	c: {
+		x: 7,
+		y: 1
+	}
+};
+
+const newNumbers = copy(numbers);
+
+newNumbers.a = 10;
+
+console.log(numbers);
+console.log(newNumbers);
+
+const add = {
+	d: 12,
+	i: 5
+};
+
+const clone = Object.assign(numbers, add);
+
+clone.d = 20;
+
+console.log(add);
+console.log(clone);
+*/
+
+
+//========================================================================================================================================================
+
+//копирование массива
+
+const oldArray = ['a', 'b', 'c'];
+const newArray = oldArray.slice();
+
+newArray[1] = 'saddfvbv';
+console.log(newArray);
+console.log(oldArray);
+
+
+//оператор SPREAD ES8
+
+const video = ['youtube', 'vimeo', 'rutube'],
+		blogs = ['wordpress', 'livejoutnal', 'bloggers'],
+		internet = [...video, ...blogs, 'vk', 'facebook'];
+		
+console.log(internet);
+
+
+function log(a, b, c) {
+	console.log(a);
+	console.log(b);
+	console.log(c);
+}
+
+const num = [2, 5, 7];
+
+log(...num);
+
+//___________________________
+
+const array = ['a', 'b'];
+
+const newAaray = [...array];
+
+const q = {
+	one: 1,
+	two: 2
+};
+
+const newObj = {...q};
+
+//========================================================================================================================================================
+
+//ООП
+
+const soldier = {
+	health: 400,
+	armor: 100,
+	sayHello: function() {
+		console.log("Hello");
+	}
+};
+
+const jonh = Object.create(soldier);
+
+/*
+const jonh = {
+	health: 200
+}
+
+//jonh.__proto__ = soldier;  //устаревшая запись
+
+Object.setPrototypeOf(jonh, soldier); //установить прототип созданному эл.
+*/
+
+console.log(jonh);
+console.log(jonh.armor);
+jonh.sayHello();
